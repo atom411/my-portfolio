@@ -1,13 +1,17 @@
-$ideya = $_POST['ideya'];
+<?php
+$fio = $_POST['fio'];
 $email = $_POST['email'];
-
-$ideya = htmlspecialchars($ideya);
+$fio = htmlspecialchars($fio);
 $email = htmlspecialchars($email);
-
-$ideya = urldecode($ideya);
+$fio = urldecode($fio);
 $email = urldecode($email);
-
-$ideya = trim($ideya);
+$fio = trim($fio);
 $email = trim($email);
-
-mail("matveyatom38@gmail.com", "Идея для сайта", $ideya,$email);
+//echo $fio;
+//echo "<br>";
+//echo $email;
+if (mail("example@mail.ru", "Заявка с сайта", "ФИО:".$fio.". E-mail: ".$email ,"From: example2@mail.ru \r\n"))
+ {     echo "сообщение успешно отправлено";
+} else {
+    echo "при отправке сообщения возникли ошибки";
+}?>
